@@ -7,6 +7,18 @@ algorithm for a feedforward neural network.  Gradients are calculated
 using backpropagation.  Note that I have focused on making the code
 simple, easily readable, and easily modifiable.  It is not optimized,
 and omits many desirable features.
+
+scixlife: this code was originally written for pyhton 2.x and 
+it might need porting to python 3.x
+
+
+python3 changes:
+===============
+
+1. Note that in Python 3.0 there is only range() and it behaves like the 2.x xrange() 
+2. 
+3.
+
 """
 
 #### Libraries
@@ -36,7 +48,14 @@ class Network(object):
                         for x, y in zip(sizes[:-1], sizes[1:])]
 
     def feedforward(self, a):
-        """Return the output of the network if ``a`` is input."""
+        """Return the output of the network if ``a`` is input.
+        It is assumed that the input a is an (n, 1) Numpy ndarray, 
+        not a (n,) vector. Here, n is the number of inputs to the network. 
+        If you try to use an (n,) vector as input you'll get strange results. 
+        Although using an (n,) vector appears the more natural choice, 
+        using an (n, 1) ndarray makes it particularly easy to modify 
+        the code to feedforward multiple inputs at once, 
+        and that is sometimes convenient."""
         for b, w in zip(self.biases, self.weights):
             a = sigmoid(np.dot(w, a)+b)
         return a
@@ -51,20 +70,20 @@ class Network(object):
         network will be evaluated against the test data after each
         epoch, and partial progress printed out.  This is useful for
         tracking progress, but slows things down substantially."""
-        if test_data: n_test = len(test_data)
         n = len(training_data)
-        for j in xrange(epochs):
+        if test_data: n_test = len(test_data)
+        
+        for j in range(epochs):
             random.shuffle(training_data)
             mini_batches = [
                 training_data[k:k+mini_batch_size]
-                for k in xrange(0, n, mini_batch_size)]
+                for k in range(0, n, mini_batch_size)]
             for mini_batch in mini_batches:
                 self.update_mini_batch(mini_batch, eta)
             if test_data:
-                print "Epoch {0}: {1} / {2}".format(
-                    j, self.evaluate(test_data), n_test)
+                print ("Epoch {0:d} -- recognized {1:d} of {2:d}".format(j,self.evaluate(test_data),n_test))
             else:
-                print "Epoch {0} complete".format(j)
+                print ("Epoch {0:d} complete".format(j))
 
     def update_mini_batch(self, mini_batch, eta):
         """Update the network's weights and biases by applying
@@ -73,6 +92,7 @@ class Network(object):
         is the learning rate."""
         nabla_b = [np.zeros(b.shape) for b in self.biases]
         nabla_w = [np.zeros(w.shape) for w in self.weights]
+        
         for x, y in mini_batch:
             delta_nabla_b, delta_nabla_w = self.backprop(x, y)
             nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
@@ -109,7 +129,7 @@ class Network(object):
         # second-last layer, and so on.  It's a renumbering of the
         # scheme in the book, used here to take advantage of the fact
         # that Python can use negative indices in lists.
-        for l in xrange(2, self.num_layers):
+        for l in range(2, self.num_layers):
             z = zs[-l]
             sp = sigmoid_prime(z)
             delta = np.dot(self.weights[-l+1].transpose(), delta) * sp

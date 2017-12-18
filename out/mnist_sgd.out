@@ -1,0 +1,155 @@
+gustavos-air:src vito$ python
+Python 3.6.2 |Anaconda, Inc.| (default, Sep 21 2017, 18:29:43) 
+[GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+>>> 
+>>> import mnist_loader
+>>> train, val, test = mnist_loader.load_data_wrapper()
+>>> 
+>>> 
+>>> import network
+>>> net = network.Network([784, 30, 10])
+>>> net.SGD(train, 30, 10, 3.0, test_data=test)
+Epoch 0 -- recognized 9075 of 10000
+Epoch 1 -- recognized 9226 of 10000
+Epoch 2 -- recognized 9299 of 10000
+Epoch 3 -- recognized 9289 of 10000
+Epoch 4 -- recognized 9377 of 10000
+Epoch 5 -- recognized 9377 of 10000
+Epoch 6 -- recognized 9444 of 10000
+Epoch 7 -- recognized 9421 of 10000
+Epoch 8 -- recognized 9437 of 10000
+Epoch 9 -- recognized 9456 of 10000
+Epoch 10 -- recognized 9452 of 10000
+Epoch 11 -- recognized 9449 of 10000
+Epoch 12 -- recognized 9491 of 10000
+Epoch 13 -- recognized 9488 of 10000
+Epoch 14 -- recognized 9512 of 10000
+Epoch 15 -- recognized 9472 of 10000
+Epoch 16 -- recognized 9506 of 10000
+Epoch 17 -- recognized 9495 of 10000
+Epoch 18 -- recognized 9505 of 10000
+Epoch 19 -- recognized 9495 of 10000
+Epoch 20 -- recognized 9498 of 10000
+Epoch 21 -- recognized 9479 of 10000
+Epoch 22 -- recognized 9497 of 10000
+Epoch 23 -- recognized 9512 of 10000
+Epoch 24 -- recognized 9508 of 10000
+Epoch 25 -- recognized 9497 of 10000
+Epoch 26 -- recognized 9515 of 10000
+Epoch 27 -- recognized 9515 of 10000
+Epoch 28 -- recognized 9516 of 10000
+Epoch 29 -- recognized 9501 of 10000
+>>> 
+>>> net = network.Network([784, 30, 10])
+>>> net.SGD(train, 30, 10, 3.0, test_data=test)
+Epoch 0 -- recognized 8146 of 10000
+Epoch 1 -- recognized 9221 of 10000
+Epoch 2 -- recognized 9221 of 10000
+Epoch 3 -- recognized 9330 of 10000
+Epoch 4 -- recognized 9356 of 10000
+Epoch 5 -- recognized 9394 of 10000
+Epoch 6 -- recognized 9436 of 10000
+Epoch 7 -- recognized 9405 of 10000
+Epoch 8 -- recognized 9457 of 10000
+Epoch 9 -- recognized 9410 of 10000
+Epoch 10 -- recognized 9429 of 10000
+Epoch 11 -- recognized 9462 of 10000
+Epoch 12 -- recognized 9437 of 10000
+Epoch 13 -- recognized 9443 of 10000
+Epoch 14 -- recognized 9478 of 10000
+Epoch 15 -- recognized 9461 of 10000
+Epoch 16 -- recognized 9480 of 10000
+Epoch 17 -- recognized 9473 of 10000
+Epoch 18 -- recognized 9462 of 10000
+Epoch 19 -- recognized 9489 of 10000
+Epoch 20 -- recognized 9482 of 10000
+Epoch 21 -- recognized 9465 of 10000
+Epoch 22 -- recognized 9494 of 10000
+Epoch 23 -- recognized 9492 of 10000
+Epoch 24 -- recognized 9496 of 10000
+Epoch 25 -- recognized 9503 of 10000
+Epoch 26 -- recognized 9496 of 10000
+Epoch 27 -- recognized 9485 of 10000
+Epoch 28 -- recognized 9507 of 10000
+Epoch 29 -- recognized 9492 of 10000
+>>> 
+>>> net = network.Network([784, 100, 10])
+>>> net.SGD(train, 30, 10, 3.0, test_data=test)
+Epoch 0 -- recognized 3863 of 10000
+Epoch 1 -- recognized 4093 of 10000
+Epoch 2 -- recognized 5443 of 10000
+Epoch 3 -- recognized 5588 of 10000
+Epoch 4 -- recognized 5647 of 10000
+Epoch 5 -- recognized 5676 of 10000
+Epoch 6 -- recognized 5676 of 10000
+Epoch 7 -- recognized 5753 of 10000
+Epoch 8 -- recognized 6645 of 10000
+Epoch 9 -- recognized 6641 of 10000
+Epoch 10 -- recognized 6655 of 10000
+Epoch 11 -- recognized 6670 of 10000
+Epoch 12 -- recognized 6664 of 10000
+Epoch 13 -- recognized 6671 of 10000
+Epoch 14 -- recognized 6688 of 10000
+Epoch 15 -- recognized 6682 of 10000
+Epoch 16 -- recognized 6694 of 10000
+Epoch 17 -- recognized 6712 of 10000
+Epoch 18 -- recognized 6704 of 10000
+Epoch 19 -- recognized 6703 of 10000
+Epoch 20 -- recognized 6712 of 10000
+Epoch 21 -- recognized 6715 of 10000
+Epoch 22 -- recognized 6726 of 10000
+Epoch 23 -- recognized 6715 of 10000
+Epoch 24 -- recognized 6742 of 10000
+Epoch 25 -- recognized 6762 of 10000
+Epoch 26 -- recognized 6810 of 10000
+Epoch 27 -- recognized 7583 of 10000
+Epoch 28 -- recognized 7600 of 10000
+Epoch 29 -- recognized 7602 of 10000
+>>> 
+>>> 
+
+
+gustavos-air:src vito$ python
+Python 3.6.2 |Anaconda, Inc.| (default, Sep 21 2017, 18:29:43) 
+[GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+>>> 
+>>> import mnist_loader
+>>> train, val, test = mnist_loader.load_data_wrapper()
+>>> import network
+>>> net = network.Network([784, 10])
+>>> net.SGD(train, 30, 10, 3.0, test_data=test)
+Epoch 0 -- recognized 4573 of 10000
+Epoch 1 -- recognized 4620 of 10000
+Epoch 2 -- recognized 4645 of 10000
+Epoch 3 -- recognized 4659 of 10000
+Epoch 4 -- recognized 4667 of 10000
+Epoch 5 -- recognized 5748 of 10000
+Epoch 6 -- recognized 5779 of 10000
+Epoch 7 -- recognized 5787 of 10000
+Epoch 8 -- recognized 5804 of 10000
+Epoch 9 -- recognized 5840 of 10000
+Epoch 10 -- recognized 5827 of 10000
+Epoch 11 -- recognized 5894 of 10000
+Epoch 12 -- recognized 6032 of 10000
+Epoch 13 -- recognized 6695 of 10000
+Epoch 14 -- recognized 6702 of 10000
+Epoch 15 -- recognized 6701 of 10000
+Epoch 16 -- recognized 6712 of 10000
+Epoch 17 -- recognized 6707 of 10000
+Epoch 18 -- recognized 6706 of 10000
+Epoch 19 -- recognized 6696 of 10000
+Epoch 20 -- recognized 6709 of 10000
+Epoch 21 -- recognized 6705 of 10000
+Epoch 22 -- recognized 6716 of 10000
+Epoch 23 -- recognized 6712 of 10000
+Epoch 24 -- recognized 6689 of 10000
+Epoch 25 -- recognized 6705 of 10000
+Epoch 26 -- recognized 6705 of 10000
+Epoch 27 -- recognized 6695 of 10000
+Epoch 28 -- recognized 6721 of 10000
+Epoch 29 -- recognized 6723 of 10000
+>>> 
